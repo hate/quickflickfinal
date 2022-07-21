@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/quickflickfinal/static/css/main.a9041707.css",
+    "main.js": "/quickflickfinal/static/js/main.8aa50e0a.js",
+    "index.html": "/quickflickfinal/index.html",
+    "main.a9041707.css.map": "/quickflickfinal/static/css/main.a9041707.css.map",
+    "main.8aa50e0a.js.map": "/quickflickfinal/static/js/main.8aa50e0a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9041707.css",
+    "static/js/main.8aa50e0a.js"
+  ]
+}
