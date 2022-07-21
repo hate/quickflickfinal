@@ -20,6 +20,7 @@ export function MovieGrid(props) {
                                     shadow="md"
                                     p="xl"
                                     radius="md"
+                                    alt={info.original_title}
                                     sx={{ backgroundImage: `url(${poster_image_api + info.poster_path})` }}
                                     style={{
                                         height: 300,
