@@ -1,7 +1,7 @@
 import { Space, Loader, Title, Text, Paper, SimpleGrid, Container, Badge, Group, Button } from "@mantine/core";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Heart } from "tabler-icons-react";
+import { Link, useParams } from "react-router-dom";
+import { ChevronLeft, Heart } from "tabler-icons-react";
 
 export default function Movie(props) {
     let { id } = useParams();
@@ -33,6 +33,10 @@ export default function Movie(props) {
                         <Space h="35px" />
 
                         <Container my="xs" size="md">
+                            <Link to="/movies" style={{ textDecoration: 'none' }}>
+                                <Button color="dark" leftIcon={<ChevronLeft />} >Back To Movies</Button>
+                            </Link>
+                            <Space h="30px" />
                             <SimpleGrid gutter="xl" cols={2} spacing="xl">
                                 <div>
                                     <Paper

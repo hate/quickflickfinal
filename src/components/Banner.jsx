@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     Title,
     Overlay,
@@ -17,6 +17,23 @@ import { createBannerStyles } from "./Banner.styles"
 export function Banner() {
     const { classes, cx } = createBannerStyles();
     const theme = useMantineTheme();
+
+    const [random, setRandom] = useState();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchMovies() {
+            const key = "?api_key=9c2999b8f08fa4e30cee97d8e2990499";
+            const api_trending = `https://api.themoviedb.org/3/discover/movie${key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate?page=1`;
+            const random_response = await (await fetch(api_trending)).json();
+
+            if (random_response.results) {
+                setRandom(random_response.results[Math.floor(Math.random() * (10 - 1) + 1)].id);
+                setLoading(false);
+            }
+        }
+        fetchMovies();
+    }, []);
 
     return (
         <div className={classes.wrapper}>
@@ -42,14 +59,14 @@ export function Banner() {
                     </Text>
 
                     <Group className={classes.controls}>
-                        <Link to="/flick">
+                        {!loading && <Link to={`/movies/${random}`}>
                             <Button
                                 className={cx(classes.control, classes.controlMain)}
                                 rightIcon={<SwitchHorizontal />}
                             >
                                 Feeling Lucky
                             </Button>
-                        </Link>
+                        </Link>}
                         <Link to="/movies">
                             <Button
                                 className={cx(classes.control, classes.controlSecondary)}
@@ -60,7 +77,7 @@ export function Banner() {
                         </Link>
                     </Group>
                 </div>
-            </Container>
-        </div>
+            </Container >
+        </div >
     );
 }

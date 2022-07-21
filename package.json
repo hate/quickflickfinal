@@ -1,7 +1,7 @@
 {
     "name": "quickflick",
     "version": "0.1.0",
-    "homepage": "https://hate.github.io/quickflick",
+    "homepage": "https://hate.github.io/quickflickfinal",
     "private": true,
     "dependencies": {
         "@mantine/core": "^4.2.10",
